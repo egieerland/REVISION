@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+SmallMLP,3. Slowly Appearing Object: Section 5→3,2,0.7406396858260212,0.7421827758881331,0.7414088272900022,0.03944587707519531,0.0,0.0,165.5,0.0,1.0,0.9906542056074766,0.9851851851851852,0.9897959183673469,0.0

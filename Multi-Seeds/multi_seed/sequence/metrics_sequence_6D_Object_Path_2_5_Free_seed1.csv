@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+Sequence,6D. Object Path 2→5→Free,1,0.7446037619488128,0.7458333333333333,0.7451846624303149,0.03503918647766113,0.0,0.0,139.5,0.0,1.0,0.9915966386554621,0.9964412811387899,0.9927007299270074,0.0

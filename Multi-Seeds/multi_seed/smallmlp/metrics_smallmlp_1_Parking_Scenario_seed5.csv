@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+SmallMLP,1. Parking Scenario,5,0.9914219114219115,0.9949425287356322,0.9931514380851072,0.0006616115570068359,0.0,0.0,146.5,0.0,1.0,0.9866666666666668,0.9965397923875432,1.0,0.989399293286219
