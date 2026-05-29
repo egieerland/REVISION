@@ -1,0 +1,2 @@
+timestamp,model,noise_level,drop_prob,jitter_ms,stress_seed,f1_degradation_mean,mttd_degradation_mean,fnr_degradation_mean,nmr_degradation_mean
+20260529_065112,Sequence,0.2,0.1,40.0,46,0.12616257021239996,-0.586315123240153,0.2951086717700566,75.7
