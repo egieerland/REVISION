@@ -1,0 +1,24 @@
+RETURN CODE: 0
+STDOUT:
+results/robustness_quick_final\rb\severe\robustness_canbussimulator_20260516_184423.csv
+STDERR:
+Exception in thread Thread-1 (device_simulation):
+Traceback (most recent call last):
+  File "C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Rule Based copy 5.py", line 715, in device_simulation
+    msg = self.generate_message(name, device)
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Rule Based copy 5.py", line 744, in generate_message
+    if self.speedometer_manual_var.get():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\tkinter\__init__.py", line 646, in get
+    return self._tk.getboolean(self._tk.globalgetvar(self._name))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+RuntimeError: main thread is not in main loop
+C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\animation.py:908: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
+  warnings.warn(
+

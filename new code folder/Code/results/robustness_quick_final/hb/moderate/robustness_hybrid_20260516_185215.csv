@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,0.5,0.25,-0.25,0.04970431327819824,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.05,25.0,42
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,0.5,0.5,0.0,0.04524588584899902,0.42214345932006836,0.37689757347106934,0.0,0.0,0.0,0.0,11.0,11.0,0.1,0.05,25.0,42
+Hybrid,3. Slowly Appearing Object: Section 5→3,0.25,0.5,0.25,nan,0.5343163013458252,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.1,0.05,25.0,42
+Hybrid,4. Slowly Appearing Object: Section 5→4,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.05,25.0,42
+Hybrid,5A. Sudden Object Section 1,0.25,0.5,0.25,nan,0.8207268714904785,nan,0.0,0.0,0.0,0.0,4.0,4.0,0.1,0.05,25.0,42
+Hybrid,5B. Sudden Object Section 2,0.25,0.75,0.5,nan,0.010863542556762695,nan,0.0,0.0,0.0,0.0,7.0,7.0,0.1,0.05,25.0,42
+Hybrid,5C. Sudden Object Section 3,0.25,0.5,0.25,nan,0.11756229400634766,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.1,0.05,25.0,42
+Hybrid,5D. Sudden Object Section 4,0.25,0.5,0.25,nan,0.23040080070495605,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.1,0.05,25.0,42
+Hybrid,5E. Sudden Object Section 5,0.25,0.5,0.25,nan,0.8531744480133057,nan,0.0,0.0,0.0,0.0,2.0,2.0,0.1,0.05,25.0,42
+Hybrid,6A. Object Path 1→2→5→Free,0.25,0.5987394957983194,0.3487394957983194,nan,0.050243377685546875,nan,0.0,0.0,0.0,0.0,12.0,12.0,0.1,0.05,25.0,42
+Hybrid,6B. Object Path 1→3→5→Free,0.25,0.5,0.25,nan,0.8327138423919678,nan,0.0,0.0,0.0,0.0,4.0,4.0,0.1,0.05,25.0,42
+Hybrid,6C. Object Path 1→4→5→Free,0.25,0.75,0.5,nan,0.0227510929107666,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.1,0.05,25.0,42
+Hybrid,6D. Object Path 2→5→Free,0.25,0.5,0.25,nan,0.1934678554534912,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.1,0.05,25.0,42
+Hybrid,6E. Object Path 3→5→Free,0.25,0.5,0.25,nan,0.2568035125732422,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.1,0.05,25.0,42
+Hybrid,6F. Object Path 4→5→Free,0.25,0.5,0.25,nan,0.306459903717041,nan,0.0,0.0,0.0,0.0,9.0,9.0,0.1,0.05,25.0,42

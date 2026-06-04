@@ -1,0 +1,5 @@
+RETURN CODE: 4
+STDOUT:
+
+STDERR:
+Adapter invocation failed: Command '['C:\\Users\\pc1br\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'C:\\EgieErlandJadian\\Code\\adapters\\run_adapter.py', '--script', 'C:\\EgieErlandJadian\\Code\\can_bus_simulation_Rule Based copy 5.py', '--seed', '42', '--noise', '0.0', '--drop', '0.0', '--jitter', '0', '--out_dir', 'results/robustness_final2\\rb\\baseline']' timed out after 300 seconds

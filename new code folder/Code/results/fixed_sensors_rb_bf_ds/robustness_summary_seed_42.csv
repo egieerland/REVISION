@@ -1,0 +1,10 @@
+model,condition,Precision,Recall,F1,Full_Brake_FNR,MTTD,NMR
+RB,baseline,,,0.0,,,
+RB,moderate,,,0.0,,,
+RB,severe,,,0.0,,,
+BF,baseline,,,0.0,,,
+BF,moderate,,,0.0,,,
+BF,severe,,,0.0,,,
+DS,baseline,,,0.0,,,
+DS,moderate,,,0.0,,,
+DS,severe,,,0.0,,,

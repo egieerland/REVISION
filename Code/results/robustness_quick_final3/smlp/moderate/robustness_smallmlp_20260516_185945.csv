@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+SmallMLP,1. Parking Scenario,0.5,0.25,-0.25,0.049994468688964844,nan,nan,0.0,0.0,0.0,5.0,0.0,-5.0,0.1,0.05,25.0,42
+SmallMLP,2. Slowly Appearing Object: Section 5→2→1,0.5,0.25,-0.25,0.04892563819885254,nan,nan,0.0,0.0,0.0,5.0,0.0,-5.0,0.1,0.05,25.0,42
+SmallMLP,3. Slowly Appearing Object: Section 5→3,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.05,25.0,42
+SmallMLP,4. Slowly Appearing Object: Section 5→4,0.25,0.468013468013468,0.218013468013468,nan,0.6961629390716553,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.1,0.05,25.0,42
+SmallMLP,5A. Sudden Object Section 1,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.05,25.0,42
+SmallMLP,5B. Sudden Object Section 2,0.25,0.5,0.25,nan,0.023228883743286133,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.1,0.05,25.0,42
+SmallMLP,5C. Sudden Object Section 3,0.25,0.45622119815668205,0.20622119815668205,nan,0.865164041519165,nan,0.0,0.0,0.0,0.0,3.0,3.0,0.1,0.05,25.0,42
+SmallMLP,5D. Sudden Object Section 4,0.25,0.5,0.25,nan,0.0037546157836914062,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.1,0.05,25.0,42
+SmallMLP,5E. Sudden Object Section 5,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.05,25.0,42
+SmallMLP,6A. Object Path 1→2→5→Free,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.05,25.0,42
+SmallMLP,6B. Object Path 1→3→5→Free,0.25,0.46360153256704983,0.21360153256704983,nan,0.6598732471466064,nan,0.0,0.0,0.0,0.0,4.0,4.0,0.1,0.05,25.0,42
+SmallMLP,6C. Object Path 1→4→5→Free,0.25,0.5,0.25,nan,0.16041254997253418,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.1,0.05,25.0,42
+SmallMLP,6D. Object Path 2→5→Free,0.25,0.5,0.25,nan,0.8972711563110352,nan,0.0,0.0,0.0,0.0,3.0,3.0,0.1,0.05,25.0,42
+SmallMLP,6E. Object Path 3→5→Free,0.25,0.75,0.5,nan,0.037714481353759766,nan,0.0,0.0,0.0,0.0,2.0,2.0,0.1,0.05,25.0,42
+SmallMLP,6F. Object Path 4→5→Free,0.25,0.5,0.25,nan,0.05871248245239258,nan,0.0,0.0,0.0,0.0,11.0,11.0,0.1,0.05,25.0,42

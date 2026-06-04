@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,0.5,0.75,0.25,0.0496973991394043,0.21721100807189941,0.16751360893249512,0.0,0.0,0.0,5.0,11.0,6.0,0.2,0.1,40.0,42
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,0.25,0.75,0.5,nan,0.029969453811645508,nan,0.0,0.0,0.0,0.0,17.0,17.0,0.2,0.1,40.0,42
+Hybrid,3. Slowly Appearing Object: Section 5→3,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.1,40.0,42
+Hybrid,4. Slowly Appearing Object: Section 5→4,0.25,0.75,0.5,nan,0.30811429023742676,nan,0.0,0.0,0.0,0.0,11.0,11.0,0.2,0.1,40.0,42
+Hybrid,5A. Sudden Object Section 1,0.25,1.0,0.75,nan,0.16154742240905762,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.2,0.1,40.0,42
+Hybrid,5B. Sudden Object Section 2,0.25,0.5,0.25,nan,0.5754220485687256,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.1,40.0,42
+Hybrid,5C. Sudden Object Section 3,0.25,0.5,0.25,nan,0.3269381523132324,nan,0.0,0.0,0.0,0.0,10.0,10.0,0.2,0.1,40.0,42
+Hybrid,5D. Sudden Object Section 4,0.25,0.5,0.25,nan,0.07056355476379395,nan,0.0,0.0,0.0,0.0,11.0,11.0,0.2,0.1,40.0,42
+Hybrid,5E. Sudden Object Section 5,0.25,0.5,0.25,nan,0.7490088939666748,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.2,0.1,40.0,42
+Hybrid,6A. Object Path 1→2→5→Free,0.25,0.5,0.25,nan,0.30954957008361816,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.2,0.1,40.0,42
+Hybrid,6B. Object Path 1→3→5→Free,0.25,0.5,0.25,nan,0.6254279613494873,nan,0.0,0.0,0.0,0.0,7.0,7.0,0.2,0.1,40.0,42
+Hybrid,6C. Object Path 1→4→5→Free,0.25,0.5,0.25,nan,0.010144948959350586,nan,0.0,0.0,0.0,0.0,9.0,9.0,0.2,0.1,40.0,42
+Hybrid,6D. Object Path 2→5→Free,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.1,40.0,42
+Hybrid,6E. Object Path 3→5→Free,0.25,0.75,0.5,nan,0.1815319061279297,nan,0.0,0.0,0.0,0.0,12.0,12.0,0.2,0.1,40.0,42
+Hybrid,6F. Object Path 4→5→Free,0.25,0.5,0.25,nan,0.34769320487976074,nan,0.0,0.0,0.0,0.0,8.0,8.0,0.2,0.1,40.0,42

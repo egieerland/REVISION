@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Sequence,1. Parking Scenario,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,295.0,291.0,-4.0,0.0,0.0,0.0,44
+Sequence,2. Slowly Appearing Object: Section 5→2→1,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,255.0,251.0,-4.0,0.0,0.0,0.0,44
+Sequence,3. Slowly Appearing Object: Section 5→3,0.45062769091243077,0.45038639934447433,-0.00024129156795643647,nan,nan,nan,0.0,0.0,0.0,332.0,331.0,-1.0,0.0,0.0,0.0,44
+Sequence,4. Slowly Appearing Object: Section 5→4,0.75,0.7439056146980842,-0.00609438530191575,0.21000885963439941,nan,nan,0.0,0.0,0.0,330.0,334.0,4.0,0.0,0.0,0.0,44
+Sequence,5A. Sudden Object Section 1,0.49829379171534666,0.75,0.25170620828465334,nan,nan,nan,0.007352941176470588,0.0,-0.007352941176470588,2.0,1.0,-1.0,0.0,0.0,0.0,44
+Sequence,5B. Sudden Object Section 2,0.5,0.5,0.0,nan,0.12348723411560059,nan,0.0,0.0,0.0,136.0,140.0,4.0,0.0,0.0,0.0,44
+Sequence,5C. Sudden Object Section 3,0.5,0.5,0.0,0.16279840469360352,0.16272640228271484,-7.200241088867188e-05,0.0,0.0,0.0,135.0,135.0,0.0,0.0,0.0,0.0,44
+Sequence,5D. Sudden Object Section 4,0.5,0.5,0.0,nan,0.12922334671020508,nan,0.0,0.0,0.0,136.0,135.0,-1.0,0.0,0.0,0.0,44
+Sequence,5E. Sudden Object Section 5,0.2600076678469137,0.25649020858431953,-0.003517459262594169,nan,0.2009754180908203,nan,0.0,0.0,0.0,137.0,136.0,-1.0,0.0,0.0,0.0,44
+Sequence,6A. Object Path 1→2→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,270.0,271.0,1.0,0.0,0.0,0.0,44
+Sequence,6B. Object Path 1→3→5→Free,0.6682692307692308,0.6666666666666666,-0.001602564102564208,nan,0.06619715690612793,nan,0.0,0.0,0.0,276.0,270.0,-6.0,0.0,0.0,0.0,44
+Sequence,6C. Object Path 1→4→5→Free,0.9962960930640913,0.9963099128540305,1.3819789939195637e-05,0.12067174911499023,nan,nan,0.0,0.0,0.0,270.0,271.0,1.0,0.0,0.0,0.0,44
+Sequence,6D. Object Path 2→5→Free,0.75,0.75,0.0,nan,nan,nan,0.0,0.0,0.0,276.0,272.0,-4.0,0.0,0.0,0.0,44
+Sequence,6E. Object Path 3→5→Free,0.4186746987951807,0.41638402509857125,-0.0022906736966094576,nan,nan,nan,0.0,0.0,0.0,275.0,274.0,-1.0,0.0,0.0,0.0,44
+Sequence,6F. Object Path 4→5→Free,0.9963632035548032,0.7481481227451681,-0.24821508080963517,nan,0.2829854488372803,nan,0.0,0.0,0.0,275.0,270.0,-5.0,0.0,0.0,0.0,44

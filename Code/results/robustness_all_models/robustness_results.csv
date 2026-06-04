@@ -1,0 +1,7 @@
+Model,Condition,Precision,Recall,F1-Score,Full_Brake_FNR,MTTD_ms,NMR
+BF,baseline,,,,,,
+BF,moderate,,,,,,
+BF,severe,,,,,,
+RB,baseline,,,,,,
+RB,moderate,,,,,,
+RB,severe,,,,,,

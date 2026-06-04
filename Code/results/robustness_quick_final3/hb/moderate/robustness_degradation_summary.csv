@@ -1,0 +1,2 @@
+timestamp,model,noise_level,drop_prob,jitter_ms,stress_seed,f1_degradation_mean,mttd_degradation_mean,fnr_degradation_mean,nmr_degradation_mean
+20260516_190301,Hybrid,0.1,0.05,25.0,42,0.19957264957264959,0.4315648078918457,0.0,4.266666666666667

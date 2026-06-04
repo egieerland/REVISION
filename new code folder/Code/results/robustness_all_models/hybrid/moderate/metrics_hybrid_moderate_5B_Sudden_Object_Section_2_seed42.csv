@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+Hybrid,5B. Sudden Object Section 2,42,0.9822198275862069,0.9984375,0.9900695337291556,0.04906725883483887,0.0,0.0,87.5,0.0,1.0,0.9956709956709957,0.967741935483871,0.9968652037617556,1.0

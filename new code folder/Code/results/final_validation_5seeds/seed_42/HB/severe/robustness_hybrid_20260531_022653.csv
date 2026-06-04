@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,0.7478991596638656,0.8446992566071805,0.09680009694331493,nan,nan,nan,0.0,0.0,0.0,300.0,386.0,86.0,0.2,0.1,40.0,42
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,255.0,333.0,78.0,0.2,0.1,40.0,42
+Hybrid,3. Slowly Appearing Object: Section 5→3,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,331.0,362.0,31.0,0.2,0.1,40.0,42
+Hybrid,4. Slowly Appearing Object: Section 5→4,0.7454414263749899,1.0,0.2545585736250101,nan,nan,nan,0.0,0.0,0.0,338.0,387.0,49.0,0.2,0.1,40.0,42
+Hybrid,5A. Sudden Object Section 1,0.5,1.0,0.5,nan,nan,nan,0.0,0.0,0.0,0.0,79.0,79.0,0.2,0.1,40.0,42
+Hybrid,5B. Sudden Object Section 2,0.49907749077490776,1.0,0.5009225092250922,nan,nan,nan,0.0,0.0,0.0,136.0,210.0,74.0,0.2,0.1,40.0,42
+Hybrid,5C. Sudden Object Section 3,0.5,1.0,0.5,nan,nan,nan,0.0,0.0,0.0,136.0,188.0,52.0,0.2,0.1,40.0,42
+Hybrid,5D. Sudden Object Section 4,0.49907749077490776,1.0,0.5009225092250922,nan,nan,nan,0.0,0.0,0.0,136.0,197.0,61.0,0.2,0.1,40.0,42
+Hybrid,5E. Sudden Object Section 5,0.5,1.0,0.5,nan,nan,nan,0.0,0.0,0.0,136.0,199.0,63.0,0.2,0.1,40.0,42
+Hybrid,6A. Object Path 1→2→5→Free,1.0,0.9984140077973858,-0.0015859922026142392,nan,nan,nan,0.0,0.0,0.0,270.0,323.0,53.0,0.2,0.1,40.0,42
+Hybrid,6B. Object Path 1→3→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,280.0,319.0,39.0,0.2,0.1,40.0,42
+Hybrid,6C. Object Path 1→4→5→Free,0.9963887150604923,1.0,0.0036112849395076863,nan,nan,nan,0.0,0.0,0.0,277.0,318.0,41.0,0.2,0.1,40.0,42
+Hybrid,6D. Object Path 2→5→Free,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,273.0,334.0,61.0,0.2,0.1,40.0,42
+Hybrid,6E. Object Path 3→5→Free,0.7445054945054945,1.0,0.2554945054945055,nan,nan,nan,0.0,0.0,0.0,273.0,310.0,37.0,0.2,0.1,40.0,42
+Hybrid,6F. Object Path 4→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,270.0,317.0,47.0,0.2,0.1,40.0,42

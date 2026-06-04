@@ -1,0 +1,2 @@
+timestamp,model,noise_level,drop_prob,jitter_ms,stress_seed,precision_degradation_mean,recall_degradation_mean,f1_degradation_mean,mttd_degradation_mean,fnr_degradation_mean,nmr_degradation_mean
+20260601_054640,CANBusSimulator,0.0,0.0,0.0,44,1.4460436924246256e-05,0.0,7.282381053563825e-06,3.989537556966146e-05,0.0,-0.0013896315779372522

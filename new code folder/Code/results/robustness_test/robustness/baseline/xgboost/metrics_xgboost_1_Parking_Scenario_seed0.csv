@@ -1,0 +1,2 @@
+model,scenario,seed,condition,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+XGBoost,1. Parking Scenario,0,baseline,0.8699250768442623,0.9300925925925926,0.8936852490106735,0.024693727493286133,0.0,0.0,131.0,0.0,1.0,0.9849624060150376,0.9980430528375733,0.6,0.9917355371900827

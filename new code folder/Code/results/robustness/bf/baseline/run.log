@@ -1,0 +1,5 @@
+RETURN CODE: 3
+STDOUT:
+
+STDERR:
+Error running can_bus_simulation_Bayesian fusion.py: CANBusSimulator.__init__() got an unexpected keyword argument 'seed'

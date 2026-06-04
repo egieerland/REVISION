@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,0.5,0.5,0.0,0.04944658279418945,0.18486356735229492,0.13541698455810547,0.0,0.0,0.0,5.0,10.0,5.0,0.2,0.1,40.0,42
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,0.25,0.75,0.5,nan,0.050466060638427734,nan,0.0,0.0,0.0,0.0,15.0,15.0,0.2,0.1,40.0,42
+Hybrid,3. Slowly Appearing Object: Section 5→3,0.25,0.25,0.0,nan,nan,nan,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.1,40.0,42
+Hybrid,4. Slowly Appearing Object: Section 5→4,0.25,0.5,0.25,nan,0.1750779151916504,nan,0.0,0.0,0.0,0.0,8.0,8.0,0.2,0.1,40.0,42
+Hybrid,5A. Sudden Object Section 1,0.25,0.5,0.25,nan,1.0055632591247559,nan,0.0,0.0,0.0,0.0,1.0,1.0,0.2,0.1,40.0,42
+Hybrid,5B. Sudden Object Section 2,0.25,0.44047619047619047,0.19047619047619047,nan,0.05021810531616211,nan,0.0,0.0,0.0,0.0,13.0,13.0,0.2,0.1,40.0,42
+Hybrid,5C. Sudden Object Section 3,0.25,0.5,0.25,nan,0.05057835578918457,nan,0.0,0.0,0.0,0.0,10.0,10.0,0.2,0.1,40.0,42
+Hybrid,5D. Sudden Object Section 4,0.25,1.0,0.75,nan,0.012624740600585938,nan,0.0,0.0,0.0,0.0,9.0,9.0,0.2,0.1,40.0,42
+Hybrid,5E. Sudden Object Section 5,0.25,0.75,0.5,nan,0.016187429428100586,nan,0.0,0.0,0.0,0.0,16.0,16.0,0.2,0.1,40.0,42
+Hybrid,6A. Object Path 1→2→5→Free,0.25,0.5,0.25,nan,0.7922525405883789,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.2,0.1,40.0,42
+Hybrid,6B. Object Path 1→3→5→Free,0.25,0.5,0.25,nan,0.034163713455200195,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.2,0.1,40.0,42
+Hybrid,6C. Object Path 1→4→5→Free,0.25,0.5,0.25,nan,0.050221920013427734,nan,0.0,0.0,0.0,0.0,5.0,5.0,0.2,0.1,40.0,42
+Hybrid,6D. Object Path 2→5→Free,0.25,0.75,0.5,nan,0.46038293838500977,nan,0.0,0.0,0.0,0.0,11.0,11.0,0.2,0.1,40.0,42
+Hybrid,6E. Object Path 3→5→Free,0.25,0.75,0.5,nan,0.010088443756103516,nan,0.0,0.0,0.0,0.0,6.0,6.0,0.2,0.1,40.0,42
+Hybrid,6F. Object Path 4→5→Free,0.25,0.75,0.5,nan,0.8398633003234863,nan,0.0,0.0,0.0,0.0,4.0,4.0,0.2,0.1,40.0,42

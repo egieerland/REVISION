@@ -1,0 +1,109 @@
+{
+  "runs": [
+    {
+      "model": "BF",
+      "condition": "severe",
+      "success": false
+    },
+    {
+      "model": "BF",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "BF",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "DS",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "RB",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "RB",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "RB",
+      "condition": "severe",
+      "success": false
+    },
+    {
+      "model": "DS",
+      "condition": "severe",
+      "success": false
+    },
+    {
+      "model": "DS",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "SMLP",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "SMLP",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "XGB",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "XGB",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "XGB",
+      "condition": "severe",
+      "success": false
+    },
+    {
+      "model": "SMLP",
+      "condition": "severe",
+      "success": false
+    },
+    {
+      "model": "TS",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "TS",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "TS",
+      "condition": "severe",
+      "success": false
+    },
+    {
+      "model": "HB",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "model": "HB",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "model": "HB",
+      "condition": "severe",
+      "success": false
+    }
+  ]
+}

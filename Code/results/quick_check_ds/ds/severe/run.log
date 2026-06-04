@@ -1,0 +1,25 @@
+RETURN CODE: 0
+STDOUT:
+results/quick_check_ds\ds\severe\robustness_canbussimulator_20260516_184906.csv
+STDERR:
+Exception in thread Thread-1 (device_simulation):
+Traceback (most recent call last):
+  File "C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Dempster-Shafer fusion.py", line 856, in device_simulation
+    self.update_decision_logic()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Dempster-Shafer fusion.py", line 1272, in update_decision_logic
+    self.collect_functional_metrics(final_decision, ground_truth)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Dempster-Shafer fusion.py", line 2007, in collect_functional_metrics
+    'scenario': self.scenario_name,
+                ^^^^^^^^^^^^^^^^^^
+AttributeError: 'CANBusSimulator' object has no attribute 'scenario_name'. Did you mean: 'scenario_var'?
+C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\animation.py:908: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
+  warnings.warn(
+

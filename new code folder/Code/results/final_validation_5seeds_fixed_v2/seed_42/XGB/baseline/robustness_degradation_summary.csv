@@ -1,0 +1,2 @@
+timestamp,model,noise_level,drop_prob,jitter_ms,stress_seed,precision_degradation_mean,recall_degradation_mean,f1_degradation_mean,mttd_degradation_mean,fnr_degradation_mean,nmr_degradation_mean
+20260602_044202,XGBoost,0.0,0.0,0.0,42,-0.011480660335957737,-0.049447348657340205,-0.02212881164883646,-0.012613519032796224,0.0,-0.0023355610258589685

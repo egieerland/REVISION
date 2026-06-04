@@ -1,0 +1,23 @@
+{
+  "seed": 46,
+  "runs": [
+    {
+      "seed": 46,
+      "model": "XGB",
+      "condition": "baseline",
+      "success": false
+    },
+    {
+      "seed": 46,
+      "model": "XGB",
+      "condition": "moderate",
+      "success": false
+    },
+    {
+      "seed": 46,
+      "model": "XGB",
+      "condition": "severe",
+      "success": false
+    }
+  ]
+}

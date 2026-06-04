@@ -1,0 +1,4 @@
+model,condition,seed,csv_path,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,fnr_mean,fnr_std,mttd_mean,mttd_std,nmr_mean,nmr_std
+XGB,baseline,42,results/quick_check_xgb\xgb\baseline\robustness_degradation_summary.csv,,,,,-0.010573476702508959,0.0,0.0,0.0,nan,0.0,-0.13333333333333333,0.0
+XGB,moderate,42,results/quick_check_xgb\xgb\moderate\robustness_degradation_summary.csv,,,,,0.17264799531206648,0.0,0.0,0.0,0.3852560520172119,0.0,6.0,0.0
+XGB,severe,42,results/quick_check_xgb\xgb\severe\robustness_degradation_summary.csv,,,,,0.23440471529197018,0.0,0.0,0.0,0.24460625648498535,0.0,9.466666666666667,0.0

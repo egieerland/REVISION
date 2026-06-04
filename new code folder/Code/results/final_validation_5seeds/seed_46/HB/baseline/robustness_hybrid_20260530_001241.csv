@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,300.0,296.0,-4.0,0.0,0.0,0.0,46
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,259.0,258.0,-1.0,0.0,0.0,0.0,46
+Hybrid,3. Slowly Appearing Object: Section 5→3,0.742368125701459,0.75,0.007631874298540953,nan,nan,nan,0.0,0.0,0.0,340.0,340.0,0.0,0.0,0.0,0.0,46
+Hybrid,4. Slowly Appearing Object: Section 5→4,1.0,0.75,-0.25,nan,nan,nan,0.0,0.0,0.0,335.0,332.0,-3.0,0.0,0.0,0.0,46
+Hybrid,5A. Sudden Object Section 1,0.75,0.5,-0.25,nan,nan,nan,0.0,0.0,0.0,5.0,0.0,-5.0,0.0,0.0,0.0,46
+Hybrid,5B. Sudden Object Section 2,0.5,0.5,0.0,0.1618208885192871,nan,nan,0.0,0.0,0.0,135.0,140.0,5.0,0.0,0.0,0.0,46
+Hybrid,5C. Sudden Object Section 3,0.4954545454545455,0.5,0.004545454545454519,nan,nan,nan,0.0,0.0,0.0,140.0,140.0,0.0,0.0,0.0,0.0,46
+Hybrid,5D. Sudden Object Section 4,0.5,0.5,0.0,nan,0.16792869567871094,nan,0.0,0.0,0.0,136.0,135.0,-1.0,0.0,0.0,0.0,46
+Hybrid,5E. Sudden Object Section 5,0.49907749077490776,0.5,0.0009225092250922384,nan,nan,nan,0.0,0.0,0.0,136.0,140.0,4.0,0.0,0.0,0.0,46
+Hybrid,6A. Object Path 1→2→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,271.0,280.0,9.0,0.0,0.0,0.0,46
+Hybrid,6B. Object Path 1→3→5→Free,0.9981549815498155,1.0,0.0018450184501844769,nan,nan,nan,0.0,0.0,0.0,271.0,278.0,7.0,0.0,0.0,0.0,46
+Hybrid,6C. Object Path 1→4→5→Free,0.9990774907749078,1.0,0.0009225092250921829,nan,nan,nan,0.0,0.0,0.0,136.0,271.0,135.0,0.0,0.0,0.0,46
+Hybrid,6D. Object Path 2→5→Free,0.7490774907749078,0.75,0.0009225092250921829,nan,nan,nan,0.0,0.0,0.0,276.0,273.0,-3.0,0.0,0.0,0.0,46
+Hybrid,6E. Object Path 3→5→Free,1.0,0.75,-0.25,nan,nan,nan,0.0,0.0,0.0,270.0,276.0,6.0,0.0,0.0,0.0,46
+Hybrid,6F. Object Path 4→5→Free,0.75,0.75,0.0,nan,nan,nan,0.0,0.0,0.0,273.0,273.0,0.0,0.0,0.0,0.0,46

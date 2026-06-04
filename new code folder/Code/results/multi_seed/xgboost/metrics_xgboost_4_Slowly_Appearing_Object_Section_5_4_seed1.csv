@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+XGBoost,4. Slowly Appearing Object: Section 5→4,1,0.8282541843113531,0.9927007299270073,0.8687434569787511,0.0007927417755126953,0.0,0.0,143.5,0.0,1.0,0.9851851851851852,0.9956709956709957,0.9941176470588234,0.5

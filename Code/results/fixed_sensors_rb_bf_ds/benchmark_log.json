@@ -1,0 +1,49 @@
+{
+  "runs": [
+    {
+      "model": "BF",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "model": "RB",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "model": "BF",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "model": "DS",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "model": "RB",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "model": "BF",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "model": "RB",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "model": "DS",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "model": "DS",
+      "condition": "severe",
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,0.74748322147651,0.8121875416502244,0.06470432017371441,nan,nan,nan,0.0,0.0,0.0,150.5,374.0,223.5,0.2,0.1,40.0,44
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,0.9941663274996608,1.0,0.005833672500339171,nan,nan,nan,0.0,0.0,0.0,258.0,364.0,106.0,0.2,0.1,40.0,44
+Hybrid,3. Slowly Appearing Object: Section 5→3,1.0,0.9973507137408739,-0.0026492862591260824,nan,nan,nan,0.0,0.0,0.0,330.0,389.0,59.0,0.2,0.1,40.0,44
+Hybrid,4. Slowly Appearing Object: Section 5→4,0.7491103202846975,1.0,0.2508896797153025,nan,nan,nan,0.0,0.0,0.0,168.0,374.0,206.0,0.2,0.1,40.0,44
+Hybrid,5A. Sudden Object Section 1,0.5,1.0,0.5,nan,nan,nan,0.0,0.0,0.0,0.0,105.0,105.0,0.2,0.1,40.0,44
+Hybrid,5B. Sudden Object Section 2,0.5,1.0,0.5,nan,nan,nan,0.0,0.0,0.0,140.0,208.0,68.0,0.2,0.1,40.0,44
+Hybrid,5C. Sudden Object Section 3,0.75,0.75,0.0,nan,nan,nan,0.0,0.0,0.0,135.0,222.0,87.0,0.2,0.1,40.0,44
+Hybrid,5D. Sudden Object Section 4,0.4956140350877193,1.0,0.5043859649122807,nan,nan,nan,0.0,0.0,0.0,145.0,195.0,50.0,0.2,0.1,40.0,44
+Hybrid,5E. Sudden Object Section 5,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,139.0,212.0,73.0,0.2,0.1,40.0,44
+Hybrid,6A. Object Path 1→2→5→Free,0.9981878110596052,0.9984170546434697,0.0002292435838645579,nan,nan,nan,0.0,0.0,0.0,276.0,323.0,47.0,0.2,0.1,40.0,44
+Hybrid,6B. Object Path 1→3→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,279.0,337.0,58.0,0.2,0.1,40.0,44
+Hybrid,6C. Object Path 1→4→5→Free,1.0,0.9966377576671694,-0.003362242332830556,nan,nan,nan,0.0,0.0,0.0,276.0,321.0,45.0,0.2,0.1,40.0,44
+Hybrid,6D. Object Path 2→5→Free,0.7445054945054945,1.0,0.2554945054945055,nan,nan,nan,0.0,0.0,0.0,273.0,325.0,52.0,0.2,0.1,40.0,44
+Hybrid,6E. Object Path 3→5→Free,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,277.0,295.0,18.0,0.2,0.1,40.0,44
+Hybrid,6F. Object Path 4→5→Free,0.75,0.9929573996552573,0.2429573996552573,nan,nan,nan,0.0,0.0,0.0,272.0,286.0,14.0,0.2,0.1,40.0,44

@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "model": "RB",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "model": "RB",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "model": "RB",
+      "condition": "severe",
+      "success": true
+    }
+  ]
+}

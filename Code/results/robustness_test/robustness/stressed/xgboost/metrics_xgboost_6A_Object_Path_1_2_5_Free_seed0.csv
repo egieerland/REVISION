@@ -1,0 +1,2 @@
+model,scenario,seed,condition,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+XGBoost,6A. Object Path 1→2→5→Free,0,stressed,0.9402945301542777,0.9011739864864865,0.91442977881195,0.0014760494232177734,0.0,0.0,130.5,0.0,1.0,0.8363636363636363,0.94,0.9061488673139158,0.9752066115702479

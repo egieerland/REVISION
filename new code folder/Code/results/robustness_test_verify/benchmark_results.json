@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-05-16T05:09:31.548134",
+  "seed": 42,
+  "models": {
+    "can_bus_simulation_XGBoost copy": {
+      "baseline": {
+        "status": "failed",
+        "output_dir": "results\\robustness_test_verify\\can_bus_simulation_XGBoost copy\\baseline",
+        "profile": {
+          "noise_level": 0.0,
+          "drop_prob": 0.0,
+          "jitter_ms": 0.0,
+          "description": "No stress - ideal conditions"
+        }
+      },
+      "moderate": {
+        "status": "failed",
+        "output_dir": "results\\robustness_test_verify\\can_bus_simulation_XGBoost copy\\moderate",
+        "profile": {
+          "noise_level": 0.1,
+          "drop_prob": 0.05,
+          "jitter_ms": 25,
+          "description": "Moderate network/sensor degradation"
+        }
+      },
+      "severe": {
+        "status": "failed",
+        "output_dir": "results\\robustness_test_verify\\can_bus_simulation_XGBoost copy\\severe",
+        "profile": {
+          "noise_level": 0.2,
+          "drop_prob": 0.1,
+          "jitter_ms": 40,
+          "description": "Severe conditions - challenging environment"
+        }
+      }
+    }
+  },
+  "summary": {
+    "total_tests": 3,
+    "passed": 0,
+    "failed": 3,
+    "timeout": 0
+  }
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "timestamp": "2026-05-16T14:28:31.457233",
+    "model": "RB",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "success",
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "full_brake_fnr": null,
+      "mttd_ms": null,
+      "nmr": null
+    }
+  },
+  {
+    "timestamp": "2026-05-16T14:29:05.803816",
+    "model": "RB",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "success",
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "full_brake_fnr": null,
+      "mttd_ms": null,
+      "nmr": null
+    }
+  },
+  {
+    "timestamp": "2026-05-16T14:29:14.127123",
+    "model": "RB",
+    "condition": "severe",
+    "seed": 42,
+    "status": "success",
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "full_brake_fnr": null,
+      "mttd_ms": null,
+      "nmr": null
+    }
+  },
+  {
+    "timestamp": "2026-05-16T14:29:36.583360",
+    "model": "BF",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "success",
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "full_brake_fnr": null,
+      "mttd_ms": null,
+      "nmr": null
+    }
+  },
+  {
+    "timestamp": "2026-05-16T14:30:20.760711",
+    "model": "BF",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "success",
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "full_brake_fnr": null,
+      "mttd_ms": null,
+      "nmr": null
+    }
+  },
+  {
+    "timestamp": "2026-05-16T14:30:26.035828",
+    "model": "BF",
+    "condition": "severe",
+    "seed": 42,
+    "status": "success",
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "full_brake_fnr": null,
+      "mttd_ms": null,
+      "nmr": null
+    }
+  },
+  {
+    "timestamp": "2026-05-16T14:30:26.130707",
+    "model": "DS",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:26.200921",
+    "model": "DS",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:26.268917",
+    "model": "DS",
+    "condition": "severe",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:36.482445",
+    "model": "XGB",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:39.642677",
+    "model": "XGB",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:42.373433",
+    "model": "XGB",
+    "condition": "severe",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:43.268955",
+    "model": "SMLP",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:44.154448",
+    "model": "SMLP",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:45.026487",
+    "model": "SMLP",
+    "condition": "severe",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:46.048396",
+    "model": "TS",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:46.980809",
+    "model": "TS",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:47.852521",
+    "model": "TS",
+    "condition": "severe",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:48.709368",
+    "model": "HB",
+    "condition": "baseline",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:49.530304",
+    "model": "HB",
+    "condition": "moderate",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  },
+  {
+    "timestamp": "2026-05-16T14:30:50.357274",
+    "model": "HB",
+    "condition": "severe",
+    "seed": 42,
+    "status": "failed",
+    "metrics": null
+  }
+]

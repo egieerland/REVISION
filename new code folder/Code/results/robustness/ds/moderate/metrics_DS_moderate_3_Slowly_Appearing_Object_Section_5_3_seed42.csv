@@ -1,0 +1,2 @@
+model,scenario,condition,seed,Precision,Recall,F1,Full_Brake_FNR,MTTD,NMR
+DS,3. Slowly Appearing Object: Section 5→3,moderate,42,,,,,,

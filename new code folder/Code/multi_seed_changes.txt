@@ -1,0 +1,89 @@
+Multi-seed validation update
+=============================
+
+Implemented changes:
+- Added shared utilities:
+  - metrics_utils.py
+  - seed_utils.py
+- Updated learning-based simulators to accept --seed and seed RNG sources:
+  - can_bus_simulation_XGBoost copy.py
+  - can_bus_simulation_SmallMLP.py
+  - can_bus_simulation_Sequence.py
+  - can_bus_simulation_hybrid.py
+- Updated research metric exports to include seed and scenario identifiers.
+- Fixed MTTD ambiguity so missed detections are represented as NaN.
+- Added miss_rate / detection_rate alongside MTTD.
+- Added new benchmark runner:
+  - run_multi_seed_benchmark.py
+- Added new aggregation script:
+  - aggregate_multi_seed_results.py
+- Added requirements.txt for the Python dependencies used by the benchmark scripts.
+
+Validation:
+- py_compile passed for all touched Python files.
+
+Example commands:
+- Run a single simulator with a seed:
+  python can_bus_simulation_XGBoost copy.py --seed 0
+- Run the multi-seed benchmark:
+  python run_multi_seed_benchmark.py --models xgboost,smallmlp,sequence,hybrid --num-seeds 10
+- Aggregate results:
+  python aggregate_multi_seed_results.py --input-dir results/multi_seed --output-dir results/aggregated
+
+Step-by-step run guide
+----------------------
+1. Open PowerShell in the Code folder:
+  cd C:\EgieErlandJadian\Code
+
+2. Install dependencies:
+  python -m pip install -r requirements.txt
+
+3. (Optional) Quick sanity check that one simulator runs:
+  python "can_bus_simulation_XGBoost copy.py" --seed 0
+
+4. Run all models across 10 seeds in one command:
+  python run_multi_seed_benchmark.py --models xgboost,smallmlp,sequence,hybrid --num-seeds 10 --timeout-buffer 3
+
+5. If the combined run is interrupted or slow on your machine, run model-by-model instead:
+  python run_multi_seed_benchmark.py --models xgboost --num-seeds 10 --timeout-buffer 3
+  python run_multi_seed_benchmark.py --models smallmlp --num-seeds 10 --timeout-buffer 3
+  python run_multi_seed_benchmark.py --models sequence --num-seeds 10 --timeout-buffer 3
+  python run_multi_seed_benchmark.py --models hybrid --num-seeds 10 --timeout-buffer 3
+
+6. Verify completion counts (10 seeds x 15 scenarios = 150 CSV files per model):
+  (Get-ChildItem .\results\multi_seed\xgboost -Filter '*.csv' | Measure-Object).Count
+  (Get-ChildItem .\results\multi_seed\smallmlp -Filter '*.csv' | Measure-Object).Count
+  (Get-ChildItem .\results\multi_seed\sequence -Filter '*.csv' | Measure-Object).Count
+  (Get-ChildItem .\results\multi_seed\hybrid -Filter '*.csv' | Measure-Object).Count
+
+7. Aggregate all benchmark outputs:
+  python aggregate_multi_seed_results.py --input-dir results/multi_seed --output-dir results/aggregated
+
+8. Open aggregated results in results\aggregated:
+  - summary_per_scenario.csv
+  - summary_overall.csv
+  - summary_table.csv
+
+Notes
+-----
+- If you want fewer or more runs, change `--num-seeds`.
+- If you want specific seeds, use `--seeds 0,1,2,3` instead of `--num-seeds`.
+- The benchmark script runs the GUI simulators headlessly and saves one CSV per model/scenario/seed.
+
+GUI versions
+------------
+Run these directly if you want the interactive windows instead of the headless benchmark:
+
+XGBoost
+python can_bus_simulation_XGBoost copy.py --seed 0
+
+SmallMLP
+python can_bus_simulation_SmallMLP.py --seed 0
+
+Sequence
+python can_bus_simulation_Sequence.py --seed 0
+
+Hybrid
+python can_bus_simulation_hybrid.py --seed 0
+
+Each GUI now also exposes a seed field in the left control panel. Change the value and click Apply Seed to rebuild the model with that seed.

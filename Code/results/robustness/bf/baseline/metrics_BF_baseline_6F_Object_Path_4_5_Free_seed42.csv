@@ -1,0 +1,2 @@
+model,scenario,condition,seed,Precision,Recall,F1,Full_Brake_FNR,MTTD,NMR
+BF,6F. Object Path 4→5→Free,baseline,42,,,,,,

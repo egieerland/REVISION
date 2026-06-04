@@ -1,0 +1,16 @@
+model,scenario,baseline_f1,stressed_f1,degradation_f1,baseline_mttd,stressed_mttd,degradation_mttd,baseline_fnr,stressed_fnr,degradation_fnr,baseline_nmr,stressed_nmr,degradation_nmr,noise_level,drop_prob,jitter_ms,stress_seed
+Hybrid,1. Parking Scenario,0.75,0.8433658070617456,0.09336580706174558,nan,nan,nan,0.0,0.0,0.0,295.0,329.0,34.0,0.1,0.05,25.0,43
+Hybrid,2. Slowly Appearing Object: Section 5→2→1,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,257.0,305.0,48.0,0.1,0.05,25.0,43
+Hybrid,3. Slowly Appearing Object: Section 5→3,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,338.0,360.0,22.0,0.1,0.05,25.0,43
+Hybrid,4. Slowly Appearing Object: Section 5→4,0.75,0.9956225326080789,0.24562253260807887,nan,nan,nan,0.0,0.0,0.0,331.0,360.0,29.0,0.1,0.05,25.0,43
+Hybrid,5A. Sudden Object Section 1,0.75,0.7455357142857143,-0.004464285714285698,nan,nan,nan,0.0,0.0,0.0,1.0,57.0,56.0,0.1,0.05,25.0,43
+Hybrid,5B. Sudden Object Section 2,0.49907749077490776,0.961735929477865,0.46265843870295725,nan,nan,nan,0.0,0.0,0.0,136.0,158.0,22.0,0.1,0.05,25.0,43
+Hybrid,5C. Sudden Object Section 3,0.75,0.979921773142112,0.22992177314211204,nan,nan,nan,0.0,0.0,0.0,144.0,154.0,10.0,0.1,0.05,25.0,43
+Hybrid,5D. Sudden Object Section 4,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,140.0,177.0,37.0,0.1,0.05,25.0,43
+Hybrid,5E. Sudden Object Section 5,0.4954545454545455,1.0,0.5045454545454545,nan,nan,nan,0.0,0.0,0.0,140.0,176.0,36.0,0.1,0.05,25.0,43
+Hybrid,6A. Object Path 1→2→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,280.0,295.0,15.0,0.1,0.05,25.0,43
+Hybrid,6B. Object Path 1→3→5→Free,1.0,1.0,0.0,nan,nan,nan,0.0,0.0,0.0,271.0,296.0,25.0,0.1,0.05,25.0,43
+Hybrid,6C. Object Path 1→4→5→Free,1.0,0.998451337691844,-0.0015486623081559792,nan,nan,nan,0.0,0.0,0.0,275.0,334.0,59.0,0.1,0.05,25.0,43
+Hybrid,6D. Object Path 2→5→Free,0.75,0.9983796610878224,0.2483796610878224,nan,nan,nan,0.0,0.0,0.0,279.0,310.0,31.0,0.1,0.05,25.0,43
+Hybrid,6E. Object Path 3→5→Free,0.75,0.993065518890483,0.243065518890483,nan,nan,nan,0.0,0.0,0.0,276.0,143.5,-132.5,0.1,0.05,25.0,43
+Hybrid,6F. Object Path 4→5→Free,0.75,1.0,0.25,nan,nan,nan,0.0,0.0,0.0,273.0,283.0,10.0,0.1,0.05,25.0,43

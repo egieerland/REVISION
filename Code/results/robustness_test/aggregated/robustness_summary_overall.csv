@@ -1,0 +1,2 @@
+model,scope,baseline_f1_mean,stressed_f1_mean,f1_delta,baseline_mttd_mean,stressed_mttd_mean,mttd_delta,baseline_fnr_mean,stressed_fnr_mean,fnr_delta,baseline_nmr_mean,stressed_nmr_mean,nmr_delta,baseline_n,stressed_n
+XGBoost,overall,0.7962899274839957,0.8484774587609614,0.052187531276965626,0.04047377904256185,0.009424594732431265,-0.03104918431013059,0.0,0.0,0.0,130.43333333333334,133.1153846153846,2.682051282051276,15,13

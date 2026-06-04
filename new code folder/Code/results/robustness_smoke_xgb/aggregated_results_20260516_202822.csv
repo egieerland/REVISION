@@ -1,0 +1,2 @@
+model_code,model,condition,runs,unique_seeds,scenarios_per_seed,precision_mean,precision_std,recall_mean,recall_std,f1_score_mean,f1_score_std,fnr_full_brake_mean,fnr_full_brake_std,mttd_mean,mttd_std,nmr_mean,nmr_std
+XGB,XGBoost,baseline,15,1,15,0.7582046800386979,0.1575198686670235,0.7884441119249227,0.13661066911052241,0.7676452318960763,0.14923601345023335,0.0,0.0,0.02668453852335612,0.028337490262353382,181.86666666666667,71.12952638538741

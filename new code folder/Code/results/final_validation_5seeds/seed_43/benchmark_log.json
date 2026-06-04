@@ -1,0 +1,131 @@
+{
+  "seed": 43,
+  "runs": [
+    {
+      "seed": 43,
+      "model": "RB",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "DS",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "BF",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "BF",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "BF",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "RB",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "RB",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "DS",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "DS",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "XGB",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "XGB",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "XGB",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "SMLP",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "SMLP",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "SMLP",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "TS",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "TS",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "TS",
+      "condition": "severe",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "HB",
+      "condition": "baseline",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "HB",
+      "condition": "moderate",
+      "success": true
+    },
+    {
+      "seed": 43,
+      "model": "HB",
+      "condition": "severe",
+      "success": true
+    }
+  ]
+}

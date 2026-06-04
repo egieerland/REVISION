@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+Sequence,4. Slowly Appearing Object: Section 5→4,7,0.6429618768328446,0.49840277777777775,0.43367340858770254,0.049870967864990234,0.0,0.0,171.0,0.0,1.0,0.9932885906040269,0.013793103448275862,0.7276119402985075,0.0

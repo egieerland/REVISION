@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+Hybrid,6F. Object Path 4→5→Free,8,0.7412173202614379,0.7428057553956835,0.7419334186939821,0.049532175064086914,0.0,0.0,140.0,0.0,1.0,1.0,0.9859154929577464,0.9818181818181818,0.0

@@ -1,0 +1,4 @@
+model,condition,seed,csv_path,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,fnr_mean,fnr_std,mttd_mean,mttd_std,nmr_mean,nmr_std
+DS,baseline,42,results/quick_check_ds\ds\baseline\robustness_degradation_summary.csv,,,,,0.0,0.0,nan,0.0,nan,0.0,nan,0.0
+DS,moderate,42,results/quick_check_ds\ds\moderate\robustness_degradation_summary.csv,,,,,0.0,0.0,nan,0.0,nan,0.0,nan,0.0
+DS,severe,42,results/quick_check_ds\ds\severe\robustness_degradation_summary.csv,,,,,0.0,0.0,nan,0.0,nan,0.0,nan,0.0

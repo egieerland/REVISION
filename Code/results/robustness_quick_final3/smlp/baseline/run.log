@@ -1,0 +1,7 @@
+RETURN CODE: 0
+STDOUT:
+results/robustness_quick_final3\smlp\baseline\robustness_smallmlp_20260516_185913.csv
+STDERR:
+C:\Users\pc1br\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\animation.py:908: UserWarning: Animation was deleted without rendering anything. This is most likely not intended. To prevent deletion, assign the Animation to a variable, e.g. `anim`, that exists until you output the Animation using `plt.show()` or `anim.save()`.
+  warnings.warn(
+

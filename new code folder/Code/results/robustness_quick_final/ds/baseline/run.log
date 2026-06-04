@@ -1,0 +1,31 @@
+RETURN CODE: 3
+STDOUT:
+
+STDERR:
+FAILED_INSTANTIATION
+Traceback (most recent call last):
+  File "C:\EgieErlandJadian\Code\adapters\run_adapter.py", line 46, in instantiate_simulator
+    sim = simulator_class(*call_args, **call_kwargs)
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Dempster-Shafer fusion.py", line 72, in __init__
+    self.setup_ui()
+    ~~~~~~~~~~~~~^^
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Dempster-Shafer fusion.py", line 676, in setup_ui
+    self.setup_left_panel(main_container)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\EgieErlandJadian\Code\can_bus_simulation_Dempster-Shafer fusion.py", line 718, in setup_left_panel
+    values=list(self.scenarios.keys()), state="readonly")
+                ^^^^^^^^^^^^^^
+AttributeError: 'CANBusSimulator' object has no attribute 'scenarios'. Did you mean: 'scenario_var'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\EgieErlandJadian\Code\adapters\run_adapter.py", line 80, in main
+    sim, root = instantiate_simulator(args.script, args.seed)
+                ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\EgieErlandJadian\Code\adapters\run_adapter.py", line 66, in instantiate_simulator
+    raise last_exc
+  File "C:\EgieErlandJadian\Code\adapters\run_adapter.py", line 60, in instantiate_simulator
+    sim = simulator_class(*args, **kwargs)
+TypeError: CANBusSimulator.__init__() missing 1 required positional argument: 'root'
+

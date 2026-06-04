@@ -1,0 +1,369 @@
+Decision-Level Sensor Fusion on the CAN Bus for Autonomous Vehicles: A Standardized Evaluation of Seven Methods
+
+Abstract
+Purpose - To evaluate decision-level sensor fusion for autonomous vehicles on a CAN bus using one standardized workflow, and to identify models that best balance accuracy, responsiveness, and safety.
+Design/methodology/approach - Seven fusion methods (Rule-Based, Bayesian, Dempster-Shafer, XGBoost, SmallMLP, Temporal Sequence, Hybrid) are tested in a deterministic simulator across 15 scenarios with identical timestamped inputs from LiDAR, two cameras, and an ultrasonic sensor. Metrics include precision, recall, F1, mean time-to-detect (MTTD), Full_Brake false-negative rate (FNR), and near-miss rate (NMR).
+Findings - SmallMLP yields the highest overall F1 and fast responses. The hybrid achieves low missed Full_Brake rates with competitive latency through explicit safety overrides. Dempster-Shafer is strongest under uncertain or conflicting evidence. XGBoost excels on Slowdown and gives the lowest collision rates in dynamic object scenarios but lags when obstacles appear suddenly. The sequence model is polarized, and the rule-based baseline is fast but brittle.
+Research limitations/implications - Results are simulation based and intermediate actions remain challenging; on-road validation, data balancing, and sensor extensions are needed.
+Originality - A single CAN centred pipeline with common inputs and outputs, deterministic timing, safety checks, and auditable logging enables fair, scenario-based decision-level comparisons with safety focused metrics.
+Keywords CAN bus; autonomous vehicles; sensor fusion; decision-level fusion; safety; SmallMLP; Dempster-Shafer; XGBoost; hybrid model; mean time-to-detect; false-negative rate; collision avoidance
+Article classification Research Article.
+
+1. Introduction 
+Recent advances span rule-based, probabilistic, evidential, machine learning, temporal, and hybrid fusion, while the CAN bus remains central for real-time integration and safety critical decisions. Motivated by time-triggered, endpoint-based interfaces that enable predictable delays and strict synchronization on CAN-like networks (Jiang et al., 2019), we enforce deterministic scheduling, identical actuator mapping, and reproducible logging to benchmark heterogeneous decision logics head-to-head. Seven decision modules (Rule-Based (RB), Bayesian (BF), Dempster-Shafer (DS), XGBoost (XGB), SmallMLP (SMLP), Temporal Sequence (TS), and Hybrid (HB)) consume synchronized LiDAR, dual front cameras, and rear ultrasonic inputs and emit one of four CAN encoded actions {0x00, 0x01, 0x02, 0x03}. Across 15 scripted scenarios, we report per class F1, safety critical Full_Brake false-negative rate (FNR), mean time-to-detect (MTTD).
+   Gap and contribution. Prior work often optimises isolated stacks (perception or IDS) or mixes sensors/models without a plug-compatible decision interface, leaving message-level reliability under-explored and head-to-head tests rare. We provide control-plane parity: seven modules share one CAN-synchronized pipeline, a single actuation map, and a common logging schema, producing identical decision bytes for the same timestamped inputs. This enables apples-to-apples comparisons on per-class F1, Full_Brake FNR, and MTTD across 15 scenarios, and directly complements decision?fusion directions in CAN security, such as conflict?aware fusion with mitigation (Moradi et al., 2024).
+
+2. Related Works
+Endpoint based, time-triggered CAN interfaces enable deterministic latency and synchronous operation, making them well suited for evaluating decision fusion under fixed update rates and hard synchronization (Jiang et al., 2019). Deterministic timing supports controlled comparisons of models that share inputs, actuation, and scheduling, so observed differences can be attributed to the fusion method rather than timing variability. A comprehensive review unifies model based, signal based, and data driven vehicle health monitoring across conventional, electric, and autonomous vehicles, reporting up to 95% accuracy for early mechanical fault detection, 15 to 20% energy efficiency gains and 10 to 15% lifespan extension for EV batteries, and 99% decision reliability in AVs (Hossain et al., 2025). It surfaces gaps in heterogeneous data integration, edge efficiency, transparent AI diagnostics, and V2V enabled detection, motivating modular decision-level fusion evaluated under deterministic timing.
+   Security sensitive CAN settings adopt multi detector aggregation with feature ranking, autoencoders, LSTM based estimation, and Yager’s rule to manage detector conflict, illustrating how evidential and decision-level fusion enhance resilience against adversarial or anomalous traffic (Moradi et al., 2024). As a modular alternative to perception-centric end-to-end stacks, decision-level fusion aligns with CAN timed interfaces. Multimodal RGB and event fusion with attention improves lateral control prediction (Munir et al., 2023), while lean, CAN integrated AV prototypes show cost effective stacks with limited sensor suites (Azam et al., 2020), highlighting accuracy, latency, and interpretability trade-offs that favour compact, interface aligned modules. Explainability remains central in safety critical contexts: rule-based approaches provide transparent logic and auditability (Sarker et al., 2024), and interpretable controllers such as interval type-2 fuzzy decision making and ANFIS based reliability estimation combine explicit rules with learnable components to bound risk (Abdullah et al., 2018; Tyagi & Sharma, 2014). Under conflicting evidence, Dempster-Shafer theory with conflict aware divergence and credibility weighting stabilizes combination and supports principled uncertainty handling; discounting and pignistic transforms remain standard for downstream decisions and enable fair comparisons with Bayesian, tree based, and neural methods (H. Wang et al., 2021).
+   Cross domain syntheses report that multi sensor fusion advances state estimation and scene perception across platforms (Du et al., 2025). Outside road vehicles, gradient boosted trees are strong baselines in manufacturing QA (Chuenmee et al., 2025), and attention aided temporal fusion improves welding state prediction (Cheng et al., 2025), motivating evaluation of tree ensembles, sequence models, and compact MLPs for decision fusion on structured, low dimensional signals. Efficiency considerations point to compact MLPs performing well on tabular features (F. Wang et al., 2025) and to digital twin architectures that structure acquisition, modelling, and services for reproducibility (Y. Wang et al., 2025). Scenario based runtime monitoring with Traffic Sequence Charts provides online verdicts in simulators and aligns with deterministic timing evaluations (Stemmer et al., 2025). Robust perception in adverse weather and rail scenes shows that combining modalities and robust detectors aids domain transfer and uncertainty tolerance (Nan et al., 2025; Thottempudi et al., 2025). Work on GNN message passing focuses on throughput and memory efficiency for real-time workloads, aligning with lightweight decision fusion compatible with CAN timed execution (Zhang et al., 2025).
+   
+3. Method
+This paper presents a modular CAN bus framework that tests seven decision-level fusion methods in one synchronized workflow, with identical timing, actuation, and logging.
+
+3.1 Simulation Framework and Pipeline
+The simulation pipeline (Fig. 1) provides a unified environment for testing all fusion algorithms through three phases: initialization, simulation, and post-processing.
+
+3.2 System Initialization
+Before each simulation run, CANBusSimulator initializes system variables, the decision module, virtual CAN devices, evaluation metrics, and the user interface. System parameters x_i (e.g., speed, rpm, sensor frequency) are linked to Tkinter variables for real-time updates, with default values ? speed?_0=60.0" " km/h (initial vehicle speed), rpm_0=4000 (engine rotation), f^"Lidar " =4" " Hz, and f^"ATmega " =20" " Hz (update frequencies). The decision core is expressed as
+
+ "DecisionCore "=A(?)	 (1)
+
+where A denotes the selected inference method (Rule-Based, Bayesian, Dempster-Shafer, XGBoost, SmallMLP, etc.) and ? the model parameters or weights
+
+Figure 1. Simulation workflow for CAN bus decision-level fusion pipeline.
+
+.The virtual CAN network is defined by
+
+"devices "={s_i=(?" CAN_ID" ?_i,f_i,?" state " ?_i )}_(i=1)^N	(2)
+
+where each s_i represents a sensor node (LiDAR, camera, or ultrasonic) with its identifier CAN_- ID_i, update rate f_i, current state state  _i, and N total devices. Neural network weights are initialized using the Glorot bound
+
+l=?(6/(n_in+n_out )) 	(3)
+
+where n_"(in) "  and n_"(out) "  are the numbers of input and output neurons, respectively; non-neural models are loaded from stored files. Performance metrics are computed as the time-averaged value
+
+m_j=1/T ?_(t=1)^T?? v_(j,t),	(4)
+
+where m_j (e.g., precision, recall, latency) denotes the j-th metric, v_(j,t) its instantaneous value, and T the total evaluation steps; all values are bound to Tkinter variables and visualized in real-time through (FigureCanvasTkAgg ).
+
+3.3 Core Fusion Logic: Implementation of Evaluated Methods
+3.3.1 Rule-Based Fusion (RB)
+The rule-based fusion model formulates decision-making as a deterministic mapping from sensor states to discrete actions defined by
+
+D={ NO_Action, Slowdown, Partial_Brake, Full_Brake }	(5)
+
+At each time step, sensor inputs consist of the LiDAR label L?D, camera occupancy flags F^L and F^R?{ Free, Not Free}, and the rear ultrasonic distance B>0(" " cm), which is active only for B<400" " cm (parking range). Using the indicator function 1_c cond  _s=1 when a condition holds and 0 otherwise, decisions follow a fixedpriority sequence: the LiDAR output governs
+
+D_1={?( Full_Brake," " &L= Full_Brake," " @ Partial_Brake," " &L= Partial_Brake," " @ Slowdown," " &L= Slowdown," " @ NO_Action," " & otherwise," " )?	(6)
+
+then camera cues refine the outcome as
+
+D_2={?( Partial_Brake, &1_((F_L= Not_Free )?(F_R= Not_Free ) )=1 and D_1= NO_Action, @D_1,& otherwise, )?	(7)
+
+and finally ultrasonic sensing adjusts it via
+
+D_3={?( Full_Brake, &B<50 and D_2= NO_Action, @ Slowdown, &50?B?400 and D_2= NO_Action, @D_2,& otherwise. )?	(8)
+
+The final output is D_"( "  final) =D_3, where LiDAR has highest priority, followed by cameras and ultrasonic sensors. Each action is mapped to a command byte
+
+c(D)?{0x00,0x01,0x02,0x03}	(9)
+
+and Boolean flags (e.g., slowdown_active, full_brake_active) are directly assigned from equivalence with D_"f "  final), ensuring transparent and reproducible rule-based behaviour.
+
+3.3.2 Bayesian Fusion (BF)
+The Bayesian fusion model defines decision inference as probabilistic reasoning over the discrete action set same as (5)
+where each action d?D begins with prior probability P(d); specifically, P( NO_Action )=0.4 and P( Slowdown )=P( Partial_Brake )=P( Full_Brake )=0.2.
+At each decision step, the combined likelihood from all sensors S is computed as
+
+L(d)=?_(s?S)?? ?_s (d) 	(10)
+
+where ?_s (d) denotes the likelihood weight contributed by sensor s, with LiDAR dominating (e.g., ?_"lidar "  ( Full_Brake )=0.95 ) and ultrasonic input active only for short distances.
+The unnormalized posterior is
+
+P ˜(d)=P(d)max[L(d),10^(-10) ]	(11)
+
+and its normalized form becomes
+
+P(d?E)=(P ˜(d))/(?_(d^'?D)???P ˜(d^' ) ) 	(12)
+
+where E represents the current sensor evidence.
+The final decision is the maximum a posteriori estimate
+
+d ˆ=arg?max?(d?D) ?P(d?E)	(13)
+
+with hysteresis applied such that if the previous decision d_"prev "  differs from d ˆ and
+
+|P(d ˆ?E)-P(d_"prev " ?E)|<0.10	(14)
+
+the system keeps d_"prev "  as output.
+Each categorical result is finally encoded as a control byte same as (9)
+corresponding to {NO_Action, Slowdown, Partial_Brake, Full_Brake}. This formulation maintains numerical stability through capped likelihoods and provides a transparent, probabilistic interpretation of multi-sensor fusion with temporal consistency.
+
+3.3.3 Dempster-Shafer Fusion (DF)
+The Dempster-Shafer fusion model performs evidential reasoning over the frame of discernment
+
+?={" NO_Action, Slowdown, Partial_Brake, Full_Brake " }	(15)
+
+where each sensor s defines a basic probability assignment m_s:2^??[0,1] satisfying 
+
+m_s (?)=0		(16)
+?_(A??)?? m_s (A)=1 	(17)
+
+Sensor reliability is adjusted by Shafer's discounting,
+
+m_s^' (A)=?_s m_s (A)	(18)
+m_s^' (?)=?_s m_s (?)+(1-?_s ) 	(19)
+
+with confidence factor ?_s?[0,1].
+For two sensors, the conjunctive combination computes the unnormalized mass
+
+m ˜(A)=?_(B?C=A)?? m_1 (B) m_2 (C) 	(20)
+
+and the conflict coefficient
+
+K=?_(B?C=?)?? m_1 (B) m_2 (C) 	(21)
+
+where K?[0,1] measures disagreement.
+Normalized mass is
+
+m(A)=(m ˜(A))/(1-K), A?? 	(22)
+
+else full conflict ( K=1 ) activates safety fallback.
+The fused evidence m_"final "  is converted to probability via the pignistic transform
+
+BetP(?)=?_(A??)??  (m_"final "  (A))/|A| , ??? 	(23)
+
+where BetP(?) denotes belief for hypothesis ?.
+The final action is
+
+? ˆ=arg?max?(???) ?BetP(?) 	(24)
+
+representing the most probable decision under uncertainty, with overrides applied for safety (e.g., B< 50 cm or LiDAR "Full Brake").
+
+3.3.4 XGBoost Fusion (XGB)
+The XGBoost fusion model encodes each sensor snapshot as a feature vector x?R^n combining binary and normalized values:
+
+x=[?(a_"sec " /5@1[F_L=" NotFree " ]@1[F_R=" NotFree " ]@b_"dist " /500@v/150@r/6000@s_"flag "  )]?R^7 	(25)
+
+where a_"sec " = acceleration, F_L,F_R= lane-free state (use 1[?] to produce 0/1), b_"dist " = back distance, v= speed, r= engine rate, and s_"flag "  = safety flag.
+The model is trained as a multiclass probabilistic classifier using M=150 gradient-boosted trees of maximum depth 6 and learning rate ?=0.08.
+Each tree f_(m,k) (x) contributes to the cumulative class score
+
+F_k (x)=?_(m=1)^M?? f_(m,k) (x) 	(26)
+
+which is converted into class probability by the softmax function
+
+p ˆ_k (x)=e^(F_k (x) )/(?_(j=1)^K???e^(F_j (x) ) ), K=4 	(27)
+
+where p ˆ_k (x) denotes the probability of action class k.
+The optimal decision is obtained by
+
+d ˆ=arg?max?k ?p ˆ_k (x) 	(28)
+
+and refined by a temporal smoother S(d ˆ,p ˆ(x)) and safety function
+SafetyGuard(sensors, features, S(d ˆ) ).
+Finally, the categorical decision d ˆ is mapped to control bytes as defined in (9), producing a fast and interpretable fusion model with safety-aware temporal consistency.
+
+3.3.5 SmallMLP Fusion (SMLP)
+The SmallMLP maps a temporal sensor window into four driving actions.
+Each input sample is a feature vector ?_i?R^D, concatenating normalized readings; all samples form ??R^(N×D).
+Network parameters are W_1?R^(D×H),b_1?R^(1×H),W_2?R^(H×C), and b_2?R^(1×C), with
+H=24 hidden units and C=4 output classes.
+Forward propagation for a minibatch ( ?_B,Y_B ) is:
+
+Z^((1) )=?_BW_1+1b_1 	(29)
+H=ReLU(Z^((1) ) ) 	(30)
+Z^((2) )=HW_2+1b_2 	(31)
+?(P_(i,k)=e^(Z_(i,k)^((2) )-max?j?Z_(i,j)^((2) ) )/(?_(r=1)^C???e^(Z_(i,r)^((2) )-max?j?Z_(i,j)^((2) ) ) )) 	(32)
+where P_(i,k) is the predicted probability for class k.
+The loss combines cross-entropy and L2 regularization:
+
+L(W)=-1/m ?_(i,k)?? Y_(i,k) log?P_(i,k)+?/2?W?_2^2 	(33)
+
+Gradients are computed as
+
+?_(W_2 )=1/m H^? (P-Y_B )+?W_2 	(34)
+?_(W_1 )=1/m ?_B^? ((P-Y_B ) W_2^??1_((H>0) ) ) 	(35)
+
+and parameters are updated by gradient descent:
+
+W?W-??_W 	(36)
+?=0.04 		(37)
+
+After training, the model outputs d ˆ=arg?max?k?P_k, mapped deterministically to actuator commands as in (9).
+This compact structure captures non-linear sensor-temporal patterns efficiently for real-time control.
+
+3.3.6 Temporal Sequence Fusion (TS)
+The temporal sequence fusion model captures short-term dependencies within a rolling window of sensor readings. Each time step produces a feature vector, forming a sequence matrix S?R^(T×f), where T is the temporal depth and f the number of features. When T>l_"seq " , only the latest l_"seq "  frames are kept; if T<l_"seq " , front-padding is applied. Temporal features are extracted using normalized 1-D convolution kernels k^((r))?R^(m_r ) satisfying ?_(t=1)^(m_r )?k_t^((r))=1. Each kernel produces
+
+?^((r) )=(k^((r) ) )^? W^((r) )=?_(t=1)^(m_r)?? k_t^((r) ) w_t 	(38)
+
+where w_t is the feature vector at time t. The aggregated representation
+
+?=[?^((1) ),?^((2) ),…,?^((r) ),s_"last " ,1]^??R^d 	(39)
+
+is projected by classifier weights W?R^(d×K) into logits and softmax probabilities:
+
+z=?^? W, p ˆ_k=e^(z_k )/(?_(j=1)^K???e^(z_j ) ) 	(40)
+d ˆ=arg?max?k ?p ˆ_k 	(41)
+
+Training minimizes the regularized cross-entropy loss
+
+L(W)=-1/N ?_(i,k)?? Y_(i,k) log?P_(i,k)+?/2?W?_2^2 	(42)
+
+with gradient
+
+?_W=1/N ?^? (P-Y)+?W 	(43)
+
+updated iteratively by W?W-??_W.
+Here, Y is the label matrix, P the predicted probabilities, ? the L2 weight decay, and ? the learning rate. This model fuses temporal evidence into smooth, context-aware driving decisions.
+
+3.3.7 SmHybrid Fusion (HB)
+The SmHybrid model combines neural inference with deterministic safety rules. Each normalized feature vector is
+
+x=[a_sec/5,1_(F_L=" NotFree " ),1_(F_R=" NotFree " ),b_"dist " /500,v/150,r/6000,s_"flag "  ]^??R^7 	(44)
+
+where a_"sec " = acceleration, F_L,F_R= lane-free state (use 1[?] to produce 0/1), b_"dist " = back distance, v= speed, r= engine rate, and s_"flag "  =safety flag.
+A two-layer MLP with h=24 hidden units computes
+
+z^((1) )=x^? W^((1) )+b^((1) ) 	(45)
+h=ReLU(z^((1) ) ) 	(46)
+z=h^? W^((2) )+b^((2) ) 	(47)
+
+yielding class probabilities
+
+p ˆ_k=e^(z_k )/(?_(j=1)^4???e^(z_j ) ) 	(48)
+d ˆ_ML=arg?max?k ?p ˆ_k 	(49)
+p ˆ_ML=max?k?p ˆ_k 	(50)
+
+Training minimizes
+
+L(W)=-1/B ?_(i,k)?? Y_(i,k) log?P_(i,k)+?/2?W?_2^2 	(51)
+
+with gradients
+
+?_(W^((2) ) )=(H^? (P-Y))/B 	(52)
+?_(W^((1) ) )=(X^? ((P-Y) W^((2)?)?1_((Z^((1) )>0) ) ))/B	(53)
+
+and update W?W-??_W (?=0.02).
+Safety logic uses back distance B :
+
+B<50?" Full_Brake"  	(54)
+50?B?400?" Slowdown"  	(55)
+
+Final action:
+
+D_"final " ={?(d_"safety " ,&?(d_"safety "  )>?(d ˆ_ML )" or " p ˆ_ML<0.65@d ˆ_ML,&" otherwise " )? 	(56)
+
+This fusion maintains adaptive learning while enforcing deterministic safety overrides.
+
+3.4 Fusion Methods Comparison
+Table 1 summarizes each model’s fusion logic in one view. RB is deterministic;
+BF updates posteriors; DS combines beliefs; XGB outputs calibrated tree scores; SMLP and TS produce softmax probabilities (TS from temporal kernels); HB fuses neural scores with rule arbitration. History is handled by counters or windows (RB, SMLP, HB), momentum or sequential mass (BF, DS), and lag features (XGB); temporal processing mirrors this with debounce, prior momentum, sequential combination, lag encoding, flattened windows, 1D kernels, and smoothing. Safety is deterministic for RB and HB, evidence driven for BF and DS, and guarded for learned models. Only SMLP and HB learn online, TS uses synthetic pretrain plus fine tune, XGB retrains offline, and RB, BF, DS are static. Gradients drive XGB and the neural models; RB, BF, DS use none.
+
+3.5 Post-Processing 
+3.5.1 Parameter Metrics
+After each simulation run, the framework evaluates each fusion model using quantitative metrics of accuracy, reliability, and responsiveness. For each class c?D= {NO_Action,Slowdown,Partial_Brake,Full_Brake}, the confusion matrix elements are defined as
+
+TP_c=|{t:d_t=c?g_t=c}| 	(57)
+FP_c=|{t:d_t=c?g_t?c}| 	(58)
+FN_c=|{t:d_t?c?g_t=c}| 	(59)
+TN_c=|{t:d_t?c?g_t?c}| 	(60)
+
+where d_t= predicted class, g_t = ground truth, TP = true positive, FP = false positive, FN = false negative, TN = true negative and ground-truth decisions at time t. Precision, recall, and F1-score are computed as
+
+? Precision?_c=(TP_c)/(TP_c+FP_c ) 	(61)
+? Recall" " ?_c=(TP_c)/(TP_c+FN_c ) 	(62)
+F1_c=(2? Precision" " ?_c ? Recall" " ?_c)/(? Precision" " ?_c+? Recall" " ?_c ) 	(63)
+
+The Full_Brake class is treated as safety-critical and evaluated by its false-negative rate (FNR), defined using event indicators 1_("pred " =F) (t) and 1_("g " t=F) (t) :
+
+TP_F=?_t???1_("pred " =F) (t) 1_(gt=F) (t) 	(64)
+FN_F=?_t???(1-1_("pred " =F) (t)) 1_(gt=F) (t) 	(65)
+FNR_F=(FN_F)/P_f  		(66)
+P_f=TP_F+FN_F 	(67)
+
+where TPF, FNF = true/false positive for Full_Brake, FNRF = false-negative rate for Full Brake, and Pf = total number of ground-truth Full_Brake.
+Table 1. Feature Implementation Methods by Model Type 
+FeatureRBBFDSXGBSMLPTSHBProbabilistic ReasoningDeterministic rulesPosterior calculationsBelief theoryTree scoring ? probabilitiesNetwork outputsSequence logitsNeural + rule fusionHistorical DataFlags / countersMomentum trackingSequential mass combineLag featuresSliding windowSequence historyHistory bufferSafety RulesHard-codedThreshold overridesSignal overridesPost safety checksRule fallbackRule fallbackSafety override functionOnline Learning————Incremental training—Incremental trainingTemporal ProcessingCountersPriors evolutionSequential combineLag encodingShort-history concat1D convolutionsBuffer-based smoothingPretraining—Likelihood calibrationMass calibrationOffline trainingSynthetic dataModel initializationNetwork pretrainGradient Learning———Gradient boostingBack-propagationGradient descentBackpropagationModel TypeRule-basedProbabilisticBelief-basedTree ensembleFeedforward NNTemporal NNHybrid NN + rulesSource(s): Authors’ own creation
+Temporal responsiveness is measured by the Mean Time-To-Detect (MTTD),
+
+?_MTTD=1/n ?_(i=1)^n?? t_("detect " ,i) 	(68)
+?_MTTD=?(1/(n-1) ?_(i=1)^n???(t_("detect " ,i)-?_MTTD )^2 ) 	(69)
+
+where ?MTTD = mean detection time, and ?MTTD = variation of detection time, with median ( t_50 ), quartiles ( t_25,t_75 ), and extrema ( t_"min " ,t_"max "  ) capturing response variability. Together, these measures quantify both detection accuracy and temporal stability.
+
+3.5.2 Data Recording and Export
+The simulator logs synchronized sensor/state/decision streams and exports raw and aggregated CSVs with metadata; we then compute the reported metrics and compile standardized tables/plots for reproducible comparison.
+
+4. Results and Discussion
+The full set of tabular results is available as supplementary data on Zenodo 
+(DOI: 10.5281/zenodo.17773408).
+
+4.1 Experimental Setup  
+Seven decision modules (Rule-Based: RB, Bayesian: BF, Dempster-Shafer: DF, XGBoost: XGB, SmallMLP: SMLP, Temporal Sequence: TS, and Hybrid: HB) were evaluated in a deterministic CAN-bus simulation across 15 scenarios (Figure 2): parking (S1), gradual approach (S2 - S4), sudden obstacles (S5A - S5E), and complex multi-object motion (S6A - S6F). Scenario rows report per-scenario F1 alongside an Expected performance target; aggregate rows give macro Precision, Recall, F1, Full_Brake false negative rate (FNR), mean time to decision (MTTD), and near-miss rate (NMR). All inputs were timestamp aligned and replayed identically across modules.
+
+4.2 Functional Performance Analysis  
+4.2.1 Classification Performance  
+SmallMLP attains the highest average F1 (0.702) and leads most scenarios (S1-S4, S6A, S6B, S6E, S6F), combining stability across complexity with limited degradation under sudden transitions. Hybrid (0.686) and XGBoost (0.657) form the next tier; Rule-Based (0.653) and Dempster-Shafer (0.643) are mid range; Bayesian (0.615) underperforms; Sequence collapses (0.479). Leadership in sudden obstacle sectors is fragmented (XGB in S5A and S5D, HB in S5B and S5C, DF in S5E). In complex motion (S6), SMLP remains consistently high (0.721 - 0.947); HB peaks in S6C (0.921); XGB surges in S6D (0.850); TS deteriorates (?0.401). Net: SMLP is the preferred single model; HB and XGB offer situational uplift; DF is niche; RB and BF are fallback; TS is unsuitable.
+
+4.2.2 Decision-Specific Performance  
+Precision ranking: SMLP 0.679, HB 0.652, XGB 0.630, RB 0.616, DF 0.599, BF 0.577, TS 0.450. Recall ranking: HB 0.742, XGB 0.737, RB 0.731, SMLP 0.726, DF 0.698, BF 0.672, TS 0.608. Full_Brake FNR stratifies safety: SMLP 0.008 (best), TS 0.018, XGB 0.020, HB 0.022, DF 0.098, RB 0.102, BF 0.136 (elevated risk). SMLP should anchor precision critical decisions; HB added when recall coverage must be maximized; XGB applied for rapid motion evolution; DF only where evidential conflict dominates; RB and BF constrained to low complexity contexts; TS excluded.
+
+4.3 Model-Specific Analysis  
+Rule-Based provides the fastest response (MTTD 0.146) but a safety gap (FNR 0.102); retain as deterministic fallback. Bayesian exhibits early-scene fragility (S1 F1 0.104) and the highest braking miss rate (FNR 0.136); limit to gradual accumulation scenarios after calibration. 
+
+Figure 2. Compiled Datas by Model and Scenario/Class
+
+Dempster-Shafer gains in conflict (S5E F1 0.526) yet has moderate overall performance and elevated misses (FNR 0.098); use as an auxiliary evidential layer. XGBoost balances acceptable F1 (0.657) with strong near-miss suppression (NMR 53.83) and low FNR (0.020) but slower decisions (MTTD 0.266); deploy for movement heavy hazard sweeps. SmallMLP is the most robust (F1 0.702, Precision 0.679, FNR 0.008) with moderate latency (0.213); adopt as primary. Temporal Sequence fails structurally (F1 0.479) despite a low FNR artifact; reject for production. Hybrid (F1 0.686, Recall 0.742, FNR 0.022) is an effective recall amplifier layered over SMLP.
+
+4.4 Cross-Scenario Performance Analysis  
+4.4.1 Action Variations  
+Precision stability (SMLP) and recall capture (HB and XGB) reflect complementary roles. Safety critical braking favors SMLP, then XGB and HB. False positives under Partial_Brake and Slowdown rise in lower precision models; TS is unreliable under temporal and spatial complexity.
+
+4.4.2 Scenario Complexity Impact  
+Parking (S1) penalizes Bayesian; SMLP remains near target. Gradual motion (S2 - S4) compresses gaps while TS is already weak. Sudden obstacles (S5) require specialization; no universal leader. Complex trajectories (S6) amplify divergence: SMLP holds, HB augments, XGB peaks selectively, TS collapses. Layer SMLP plus HB (and XGB when motion dynamics dominate) and add DF only for conflict heavy periphery ambiguity.
+
+4.5 Non-Functional Performance  
+4.5.1 Response Latency  
+MTTD ordering from fast to slow: RB 0.146, BF 0.182, DF 0.192, SMLP 0.213, HB 0.222, TS 0.264, XGB 0.266. SMLP and HB offer acceptable trade offs; XGB may require pairing with faster arbitration for abrupt hazards.
+
+4.5.2 Safety Reliability  
+Full_Brake FNR confirms SMLP primacy (0.008). TS, XGB, HB (?0.022) are acceptable; DF, RB, BF (?0.098) demand gating. Critical braking logic should privilege SMLP with HB support; XGB admissible under motion emphasis; DF, RB, BF restricted.
+
+4.5.3 Hazard Sensitivity  
+Near-miss rate (lower better): XGB 53.83, SMLP 55.73, HB 62.57, BF 68.23, DF 69.53, TS 74.40, RB 77.67. Combine SMLP (precision plus safety) with XGB (hazard surfacing) and optionally HB (recall lift) for balanced risk coverage.
+
+4.6 Statistical Significance  
+Magnitude of observed separations (F1: SMLP 0.702 vs BF 0.615; FNR: 0.008 vs 0.136; latency: 0.146 vs 0.266; NMR: 53.83 vs 77.67) is operationally consequential even without interval estimates. Final deployment guidance: adopt SmallMLP as core; overlay Hybrid where missed detections are intolerable; insert XGBoost for dynamic hazard evolution; reserve Dempster-Shafer for ambiguous conflict zones; constrain Rule-Based and Bayesian to controlled fallback; exclude Sequence from production.
+
+5. Conclusions
+This study evaluated decision-level sensor fusion on the CAN bus using one standardized workflow to identify methods that balance accuracy, responsiveness, and safety. Across fifteen deterministic scenarios, SmallMLP achieved the highest F1 with fast detection in complex motion. SmHybrid minimized Full_Brake misses without added latency. XGBoost emphasized recall in movement heavy scenes but tended to trade precision. Dempster-Shafer performed well for braking under conflicting evidence but showed blind spots. Bayesian and rules were inconsistent, and the Sequence model repeatedly missed Slowdown, so it is unsuitable. Intermediate actions remained the dominant error source.
+   Theoretically, the results support decision-level fusion as an auditable alternative to end-to-end stacks, validate lightweight neural models on structured signals, and show the value of deterministic safety overrides. For organisational management and workplace policy, the digital twin style pipeline with common inputs and outputs, timing fidelity, and safety metrics such as FNR and MTTD enables model risk management, compliance ready logging, and repeatable certification by distributed teams. In the post-pandemic context, these practices improve evidence-based decisions for updates and releases.
+   Limitations include reliance on simulation, restricted sensing modalities, and class imbalance for intermediate actions. Future work should perform on-road validation across diverse environments, extend sensing to radar and infrared, apply cost sensitive and curriculum training with augmentation to sharpen intermediate decisions, and formalize runtime monitoring with human in the loop escalation and response time service levels. 
+   Practitioners can choose SmallMLP for overall good performance, choose SmHybrid when minimizing Full_Brake misses is the priority, and choose XGBoost for movement heavy scenes.
+   By coupling compact neural fusion with explicit safety logic in an auditable workflow, this study offers a scalable template for remote, standards driven engineering. The approach supports faster iteration, safer deployment, and higher productivity for distributed teams in the modern economy today.
+
+
+References
+
+Abdullah, L., Adawiyah, C. W. R., & Kamal, C. W. (2018). A decision making method based on interval type-2 fuzzy sets: An approach for ambulance location preference. Applied Computing and Informatics, 14(1), 65–72. https://doi.org/10.1016/j.aci.2017.04.003
+Azam, S., Munir, F., Sheri, A. M., Kim, J., & Jeon, M. (2020). System, design and experimental validation of autonomous vehicle in an unconstrained environment. Sensors (Switzerland), 20(21), 1–35. https://doi.org/10.3390/s20215999
+Cheng, S., Yu, R., Shen, A., Yi, Y., & Zhao, Y. (2025). MSDF-TL: A transfer learning and physics-constrained multi-source data fusion framework for weld state prediction. Journal of Manufacturing Processes, 154, 504–523. https://doi.org/10.1016/j.jmapro.2025.09.070
+Chuenmee, N., Phothi, N., Chamniprasart, K., Khaengkarn, S., & Srisertpol, J. (2025). Machine learning for predicting resistance spot weld quality in automotive manufacturing. Results in Engineering, 25. https://doi.org/10.1016/j.rineng.2024.103570
+Du, H., Ren, L., Wang, Y., Cao, X., & Sun, C. (2025). Advancements in perception system with multi-sensor fusion for embodied agents. Information Fusion, 117. https://doi.org/10.1016/j.inffus.2024.102859
+Hossain, M. N., Rahman, M. M., & Ramasamy, D. (2025). Advances in intelligent vehicular health monitoring and fault diagnosis: Techniques, technologies, and future directions. In Measurement: Journal of the International Measurement Confederation (Vol. 253). Elsevier B.V. https://doi.org/10.1016/j.measurement.2025.117618
+Jiang, B., Chen, M., & Chen, F. (2019). A network interface device for networked control system with time-driven mode. Microprocessors and Microsystems, 64, 1–11. https://doi.org/10.1016/j.micpro.2018.10.002
+Moradi, M., Kordestani, M., Jalali, M., Rezamand, M., Mousavi, M., Chaibakhsh, A., & Saif, M. (2024). Sensor and Decision Fusion-Based Intrusion Detection and Mitigation Approach for Connected Autonomous Vehicles. IEEE Sensors Journal, 24(13), 20908–20919. https://doi.org/10.1109/JSEN.2024.3397966
+Munir, F., Azam, S., Yow, K. C., Lee, B. G., & Jeon, M. (2023). Multimodal fusion for sensorimotor control in steering angle prediction. Engineering Applications of Artificial Intelligence, 126. https://doi.org/10.1016/j.engappai.2023.107087
+Nan, Z., Liu, W., Zhu, G., Zhao, H., Xia, W., Lin, X., & Yang, Y. (2025). LiDAR-Camera joint obstacle detection algorithm for railway track area. Expert Systems with Applications, 275. https://doi.org/10.1016/j.eswa.2025.127089
+Sarker, I. H., Janicke, H., Ferrag, M. A., & Abuadbba, A. (2024). Multi-aspect rule-based AI: Methods, taxonomy, challenges and directions towards automation, intelligence and transparent cybersecurity modeling for critical infrastructures. In Internet of Things (Netherlands) (Vol. 25). Elsevier B.V. https://doi.org/10.1016/j.iot.2024.101110
+Stemmer, R., Saxena, I., Panneke, L., Grundt, D., Austel, A., Möhlmann, E., & Westphal, B. (2025). Runtime monitoring of complex scenario-based requirements for autonomous driving functions. Science of Computer Programming, 244. https://doi.org/10.1016/j.scico.2025.103301
+Thottempudi, P., Jambek, A. B. B., Kumar, V., Acharya, B., & Moreira, F. (2025). Resilient object detection for autonomous vehicles: Integrating deep learning and sensor fusion in adverse conditions. Engineering Applications of Artificial Intelligence, 151. https://doi.org/10.1016/j.engappai.2025.110563
+Tyagi, K., & Sharma, A. (2014). An adaptive neuro fuzzy model for estimating the reliability of component-based software systems. Applied Computing and Informatics, 10(1–2), 38–51. https://doi.org/10.1016/j.aci.2014.04.002
+Wang, F., Liu, S., Chen, S., Zhang, Q., Wang, D., Ma, X., & Dai, X. (2025). SOH estimation for lithium-ion batteries using the distribution of relaxation time and feature optimized multilayer perceptron. IScience, 28(9). https://doi.org/10.1016/j.isci.2025.113443
+Wang, H., Deng, X., Jiang, W., & Geng, J. (2021). A new belief divergence measure for Dempster–Shafer theory based on belief and plausibility function and its application in multi-source data fusion. Engineering Applications of Artificial Intelligence, 97. https://doi.org/10.1016/j.engappai.2020.104030
+Wang, Y., Xiao, J., Soo, Y. Y., Chen, Y., & Chen, Z. (2025). Digital twins for battery health prognosis: A comprehensive review of recent advances and challenges. In eTransportation (Vol. 26). Elsevier B.V. https://doi.org/10.1016/j.etran.2025.100489
+Zhang, Y., Yu, K., & Zhang, X. (2025). FastClothGNN: Optimizing message passing in Graph Neural Networks for accelerating real-time cloth simulation. Graphical Models, 139. https://doi.org/10.1016/j.gmod.2025.101273
+ 

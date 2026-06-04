@@ -1,0 +1,2 @@
+model,scenario,seed,precision_avg,recall_avg,f1_avg,mttd_mean_s,mttd_std_s,fnr_full_brake,nmr,miss_rate,detection_rate,f1_NO_Action,f1_Slowdown,f1_Partial_Brake,f1_Full_Brake
+SmallMLP,5A. Sudden Object Section 1,42,0.9789850758117011,0.9650793650793651,0.9717705998198496,0.049683332443237305,0.0,0.0,25.5,0.0,1.0,0.9911504424778761,0.9142857142857143,0.9855072463768115,0.9961389961389961
